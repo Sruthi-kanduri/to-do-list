@@ -40,15 +40,25 @@ body {
     gap: 50px;
     width: 100%;
 }
-
-#progressContainer {
-    width: 100%;
-    background-color: var(--secondaryBackground);
-    border-radius: 10px;
+#progressBar {
+    width: 0%;
     height: 20px;
-    margin: 10px 0;
-    position: relative;
-}
+    background-color: #4CAF50;
+    text-align: center;
+    color: white;
+    line-height: 20px;
+    border-radius: 10px; /* Rounded corners */
+    transition: width 0.3s ease-in-out; /* Smooth animation */
+  }
+  
+  #progressContainer {
+    width: 100%;
+    background-color: #ddd;
+    border-radius: 10px; /* Rounded container */
+    overflow: hidden; /* Ensures smooth edges */
+    height: 20px;
+  }
+  
 
 #progressFill {
     width: 0;
