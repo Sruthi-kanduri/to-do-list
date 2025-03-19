@@ -73,9 +73,18 @@ function updateProgressBar() {
   const totalTasks = tasks.length;
   const completedTasks = tasks.filter(task => task.completed).length;
   const progressPercentage = totalTasks > 0 ? (completedTasks / totalTasks) * 100 : 0;
+
   progressBar.style.width = `${progressPercentage}%`;
   progressBar.innerText = `${Math.round(progressPercentage)}%`;
+  
+  // Ensure progress bar is visible
+  if (totalTasks === 0) {
+    progressBar.style.display = "none"; // Hide if no tasks
+  } else {
+    progressBar.style.display = "block"; // Show if tasks exist
+  }
 }
+
 
 // Schedule Desktop Reminders
 function scheduleReminder(taskDescription, dueDate) {
