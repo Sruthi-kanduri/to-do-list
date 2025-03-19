@@ -1,8 +1,7 @@
+import os
 from flask import Flask, render_template, request, jsonify, redirect
 import json
 from datetime import datetime
-import time
-import threading
 
 app = Flask(__name__)
 TASKS_FILE = "tasks.json"
@@ -56,4 +55,6 @@ def send_notification():
     return jsonify({"title": title, "message": message}), 200
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    # Bind to the correct host and port
+    port = int(os.environ.get("PORT", 5000))  # Render provides PORT as an environment variable
+    app.run(host="0.0.0.0", port=port, debug=True)
